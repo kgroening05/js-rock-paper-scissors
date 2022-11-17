@@ -43,7 +43,7 @@ function getComputerChoice(){
             break;
         case 2: 
             return 'scissors'
-        default
+        default:
             alert('Error with random number generation')
     }
 }
@@ -56,6 +56,23 @@ function generateRandomInt(){
     return randomChoice
 }
 // Compare user choice to computer choice to determine winner
+function decideWinner(computerChoice, userChoice){
+    if (computerChoice === userChoice){
+        return 'draw'
+    }
+    else if (computerChoice === 'rock' && userChoice === 'scissors'){
+        return 'computer'
+    }
+    else if (computerChoice === 'paper' && userChoice === 'rock'){
+        return 'computer'
+    }
+    else if (computerChoice === 'scissors' && userChoice === 'paper'){
+        return 'computer'
+    }
+    else{
+        return 'user'
+    }
+}
 // Print user choice and computer choice on screen, along with the winner
 // Set up for best of 5 rounds - whoever wins 3 rounds first wins the game
 // Loop through function to run rounds until there is a winner
