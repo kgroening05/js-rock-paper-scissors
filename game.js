@@ -1,6 +1,10 @@
 // Create string variable to hold game choice from user
 // Store input from browser prompt from user in variable
-let userChoice = prompt('Rock, Paper, or Scissors? ')
+function getUserChoice(){
+    let userChoice = prompt('Rock, Paper, or Scissors? ')
+    return userChoice
+}
+
 alert(userChoice)
 alert(getComputerChoice())
 
