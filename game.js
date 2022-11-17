@@ -1,6 +1,8 @@
 // Create string variable to hold game choice from user
-while (validChoice != true) {
-    let rawUserInput = getUserChoice()
+let validChoice;
+let rawUserInput
+while (validChoice !== true) {
+    rawUserInput = getUserChoice()
     validChoice = validateUserChoice(rawUserInput)
     if (validChoice != true){
         alert('Please enter a valid choice.')
@@ -12,8 +14,6 @@ function getUserChoice(){
     return userChoice
 }
 
-alert(userChoice)
-alert(getComputerChoice())
 
 // Function to clean user input, removing whitespace and converting to lowercase
 function cleanUserChoice(choice){
