@@ -8,38 +8,45 @@ let computerScore = 0;
 const ROUNDStoWIN = 3;
 const ROUNDS = 5;
 // Loop through function to run rounds until there is a winner
-for (let currentRound = 1; currentRound <= ROUNDS; currentRound++) {
-    while (validChoice !== true) {
-        rawUserInput = getUserChoice()
-        validChoice = validateUserChoice(rawUserInput)
-        if (validChoice != true){
-            alert('Please enter a valid choice.')
+function mainGameLoop(){
+    for (let currentRound = 1; currentRound <= ROUNDS; currentRound++) {
+        while (validChoice !== true) {
+            rawUserInput = getUserChoice()
+            validChoice = validateUserChoice(rawUserInput)
+            if (validChoice != true){
+                alert('Please enter a valid choice.')
+            }
         }
-    }
-    validChoice = null
-    let computerChoice = getComputerChoice()
-    let winner = decideWinner(computerChoice, cleanUserChoice(rawUserInput))
+        validChoice = null
+        let computerChoice = getComputerChoice()
+        let winner = decideWinner(computerChoice, cleanUserChoice(rawUserInput))
 
-    if (winner === 'computer'){computerScore++}
-    else if (winner === 'user'){userScore++}
-    else if (winner === 'draw'){currentRound--}
-    printPrettyWinnerMessage(winner, currentRound, computerScore, userScore)
-    if (computerScore == ROUNDStoWIN){
-        currentRound = ROUNDS
-        alert('Computer Wins the game!')
-    }
-    if (userScore == ROUNDStoWIN){
-        currentRound = ROUNDS
-        alert('You Win the game!')
+        if (winner === 'computer'){computerScore++}
+        else if (winner === 'user'){userScore++}
+        else if (winner === 'draw'){currentRound--}
+        printPrettyWinnerMessage(winner, currentRound, computerScore, userScore)
+        if (computerScore == ROUNDStoWIN){
+            currentRound = ROUNDS
+            alert('Computer Wins the game!')
+        }
+        if (userScore == ROUNDStoWIN){
+            currentRound = ROUNDS
+            alert('You Win the game!')
+        }
     }
 }
 // Prompt to play again and reset the tracker variables
-playAgain = confirm('Play again?')
-if(playAgain){
-    currentRound = 1
-    validChoice = null
-    userScore = 0
-    computerScore = 0
+mainGameLoop()
+let playAgain;
+while (playAgain != false) {
+    playAgain = confirm('Play again?')
+    if(playAgain){
+        currentRound = 1
+        validChoice = null
+        userScore = 0
+        computerScore = 0
+        mainGameLoop()
+    }
 }
 
 // Store input from browser prompt from user in variable
