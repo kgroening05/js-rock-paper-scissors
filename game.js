@@ -3,7 +3,14 @@
 let userChoice = prompt('Rock, Paper, or Scissors? ')
 alert(userChoice)
 alert(getComputerChoice())
+
 // Function to Validate user input to ensure it's a legal choice
+function validateUserChoice(choice){
+    cleanChoice = choice.trim().toLowerCase();
+    if (cleanChoice === 'rock' || cleanChoice === 'paper' || cleanChoice === 'scissors') {
+        return true
+    }
+}
 // Create string variable to hold game choice from computer function
 // Write function to randomly select computer game choice and save in variable
 
