@@ -8,6 +8,9 @@ while (validChoice !== true) {
         alert('Please enter a valid choice.')
     }
 }
+
+
+
 // Store input from browser prompt from user in variable
 function getUserChoice(){
     let userChoice = prompt('Rock, Paper, or Scissors? ')
@@ -31,7 +34,7 @@ function validateUserChoice(choice){
 // Create string variable to hold game choice from computer function
 // Write function to randomly select computer game choice and save in variable
 
-function getComputerChoice(){
+function generateRandomInt(){
     let numberCap = 3
     let randomChoice = Math.floor(Math.random() * numberCap);
     return randomChoice
