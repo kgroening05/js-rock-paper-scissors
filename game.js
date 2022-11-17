@@ -1,16 +1,36 @@
 // Create string variable to hold game choice from user
 let validChoice;
 let rawUserInput;
-while (validChoice !== true) {
-    rawUserInput = getUserChoice()
-    validChoice = validateUserChoice(rawUserInput)
-    if (validChoice != true){
-        alert('Please enter a valid choice.')
+let userScore = 0;
+let computerScore = 0;
+const ROUNDStoWIN = 3;
+const ROUNDS = 5;
+for (let currentRound = 1; currentRound <= ROUNDS; currentRound++) {
+    while (validChoice !== true) {
+        rawUserInput = getUserChoice()
+        validChoice = validateUserChoice(rawUserInput)
+        if (validChoice != true){
+            alert('Please enter a valid choice.')
+        }
+    }
+    validChoice = null
+    let computerChoice = getComputerChoice()
+    let winner = decideWinner(computerChoice, cleanUserChoice(rawUserInput))
+
+    if (winner === 'computer'){computerScore++}
+    else if (winner === 'user'){userScore++}
+    else if (winner === 'draw'){currentRound--}
+    printPrettyWinnerMessage(winner, currentRound, computerScore, userScore)
+    if (computerScore == ROUNDStoWIN){
+        currentRound = ROUNDS
+        alert('Computer Wins the game!')
+    }
+    if (userScore == ROUNDStoWIN){
+        currentRound = ROUNDS
+        alert('You Win the game!')
     }
 }
-let computerChoice = getComputerChoice()
-let winner = decideWinner(computerChoice, cleanUserChoice(rawUserInput))
-printPrettyWinnerMessage(winner)
+
 
 
 // Store input from browser prompt from user in variable
@@ -76,16 +96,16 @@ function decideWinner(computerChoice, userChoice){
     }
 }
 // Define a function to create pretty print messages
-function printPrettyWinnerMessage(result){
+function printPrettyWinnerMessage(result, round, computerScore, userScore){
     switch (result) {
         case 'computer':
-            alert('The computer wins!')
+            alert(`Round ${round}: The computer wins! \nComputer Score: ${computerScore}\nUser Score: ${userScore}`)
             break;
         case 'user':
-            alert('You Win!')
+            alert(`Round ${round}: You Win! \nComputer Score: ${computerScore}\nUser Score: ${userScore}`)
             break;
         case 'draw':
-            alert("It's a draw!")
+            alert(`Round ${round}: It's a draw! \nComputer Score: ${computerScore}\nUser Score: ${userScore}`)
             break;
         default:
             break;
@@ -95,5 +115,5 @@ function printPrettyWinnerMessage(result){
 // Loop through function to run rounds until there is a winner
 
 // Create integer variable to keep track of computer vs user score
-const ROUNDS = 5
+
 // Prompt to play again and reset the tracker variables
