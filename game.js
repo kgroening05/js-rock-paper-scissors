@@ -1,6 +1,6 @@
 // Create string variable to hold game choice from user
 let validChoice;
-let rawUserInput
+let rawUserInput;
 while (validChoice !== true) {
     rawUserInput = getUserChoice()
     validChoice = validateUserChoice(rawUserInput)
@@ -8,7 +8,9 @@ while (validChoice !== true) {
         alert('Please enter a valid choice.')
     }
 }
-
+let computerChoice = getComputerChoice()
+let winner = decideWinner(computerChoice, cleanUserChoice(rawUserInput))
+alert(`The winner is: ${winner}!`)
 
 
 // Store input from browser prompt from user in variable
