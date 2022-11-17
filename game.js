@@ -1,4 +1,11 @@
 // Create string variable to hold game choice from user
+while (validChoice != true) {
+    let rawUserInput = getUserChoice()
+    validChoice = validateUserChoice(rawUserInput)
+    if (validChoice != true){
+        alert('Please enter a valid choice.')
+    }
+}
 // Store input from browser prompt from user in variable
 function getUserChoice(){
     let userChoice = prompt('Rock, Paper, or Scissors? ')
@@ -33,5 +40,7 @@ function getComputerChoice(){
 // Print user choice and computer choice on screen, along with the winner
 // Set up for best of 5 rounds - whoever wins 3 rounds first wins the game
 // Loop through function to run rounds until there is a winner
+
 // Create integer variable to keep track of computer vs user score
+const ROUNDS = 5
 // Prompt to play again and reset the tracker variables
