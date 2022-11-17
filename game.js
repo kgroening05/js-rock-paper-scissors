@@ -4,9 +4,15 @@ let userChoice = prompt('Rock, Paper, or Scissors? ')
 alert(userChoice)
 alert(getComputerChoice())
 
+// Function to clean user input, removing whitespace and converting to lowercase
+function cleanUserChoice(choice){
+    let cleanChoice = choice.trim().toLowerCase();
+    return cleanChoice
+}
+
 // Function to Validate user input to ensure it's a legal choice
 function validateUserChoice(choice){
-    cleanChoice = choice.trim().toLowerCase();
+    let cleanChoice = cleanUserChoice(choice)
     if (cleanChoice === 'rock' || cleanChoice === 'paper' || cleanChoice === 'scissors') {
         return true
     }
