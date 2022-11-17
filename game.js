@@ -32,6 +32,22 @@ function validateUserChoice(choice){
     }
 }
 // Create string variable to hold game choice from computer function
+function getComputerChoice(){
+    choiceInteger = generateRandomInt()
+    switch (choiceInteger) {
+        case 0:
+            return 'rock'
+            break;
+        case 1:
+            return 'paper'
+            break;
+        case 2: 
+            return 'scissors'
+        default
+            alert('Error with random number generation')
+    }
+}
+
 // Write function to randomly select computer game choice and save in variable
 
 function generateRandomInt(){
