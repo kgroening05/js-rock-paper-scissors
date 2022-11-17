@@ -10,7 +10,7 @@ while (validChoice !== true) {
 }
 let computerChoice = getComputerChoice()
 let winner = decideWinner(computerChoice, cleanUserChoice(rawUserInput))
-alert(`The winner is: ${winner}!`)
+printPrettyWinnerMessage(winner)
 
 
 // Store input from browser prompt from user in variable
@@ -75,7 +75,22 @@ function decideWinner(computerChoice, userChoice){
         return 'user'
     }
 }
-// Print user choice and computer choice on screen, along with the winner
+// Define a function to create pretty print messages
+function printPrettyWinnerMessage(result){
+    switch (result) {
+        case 'computer':
+            alert('The computer wins!')
+            break;
+        case 'user':
+            alert('You Win!')
+            break;
+        case 'draw':
+            alert("It's a draw!")
+            break;
+        default:
+            break;
+    }
+}
 // Set up for best of 5 rounds - whoever wins 3 rounds first wins the game
 // Loop through function to run rounds until there is a winner
 
