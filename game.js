@@ -33,8 +33,14 @@ for (let currentRound = 1; currentRound <= ROUNDS; currentRound++) {
         alert('You Win the game!')
     }
 }
-
-
+// Prompt to play again and reset the tracker variables
+playAgain = confirm('Play again?')
+if(playAgain){
+    currentRound = 1
+    validChoice = null
+    userScore = 0
+    computerScore = 0
+}
 
 // Store input from browser prompt from user in variable
 function getUserChoice(){
@@ -119,4 +125,3 @@ function printPrettyWinnerMessage(result, round, computerScore, userScore){
 
 
 
-// Prompt to play again and reset the tracker variables
