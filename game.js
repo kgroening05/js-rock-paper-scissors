@@ -1,10 +1,13 @@
 // Create string variable to hold game choice from user
 let validChoice;
 let rawUserInput;
+// Create integer variable to keep track of computer vs user score
 let userScore = 0;
 let computerScore = 0;
+// Set up for best of 5 rounds - whoever wins 3 rounds first wins the game
 const ROUNDStoWIN = 3;
 const ROUNDS = 5;
+// Loop through function to run rounds until there is a winner
 for (let currentRound = 1; currentRound <= ROUNDS; currentRound++) {
     while (validChoice !== true) {
         rawUserInput = getUserChoice()
@@ -111,9 +114,9 @@ function printPrettyWinnerMessage(result, round, computerScore, userScore){
             break;
     }
 }
-// Set up for best of 5 rounds - whoever wins 3 rounds first wins the game
-// Loop through function to run rounds until there is a winner
 
-// Create integer variable to keep track of computer vs user score
+
+
+
 
 // Prompt to play again and reset the tracker variables
