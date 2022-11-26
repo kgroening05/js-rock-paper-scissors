@@ -20,7 +20,17 @@ function mainGameLoop(event){
     let computerChoice = getComputerChoice();
     let winner = decideWinner(computerChoice, userChoice);
     scoreHandler(winner);
+    displayScore();
     winnerChecker();
+
+}
+
+// Function to show score on the screen
+function displayScore(){
+    const userScoreDisplay = document.querySelector('.userScore')
+    const computerScoreDisplay = document.querySelector('.computerScore')
+    userScoreDisplay.innerHTML = `You: ${userScore}`
+    computerScoreDisplay.innerHTML = `Computer: ${computerScore}`
 }
 
 // Function to reset the game
@@ -28,18 +38,29 @@ function resetGame(){
     currentRound = 0;
     userScore = 0;
     computerScore = 0;
+    displayScore();
 }
 
 // Function to check for a winner
 function winnerChecker(){
+    if (computerScore !== ROUNDStoWIN && userScore !== ROUNDStoWIN){
+        return
+    }
+    const modal = document.querySelector(".modal");
+    const resetBtn = document.querySelector(".resetGameButton");
+    const winnerMessage = document.querySelector(".gameWinner");
+
     if (computerScore == ROUNDStoWIN){
-        currentRound = ROUNDS;
-        alert('Computer Wins the game!');
+        winnerMessage.innerHTML = "Computer Wins!";
     }
     if (userScore == ROUNDStoWIN){
-        currentRound = ROUNDS
-        alert('You Win the game!')
+        winnerMessage.innerHTML = "You Win!";
     }
+    modal.style.display = "block";
+    resetBtn.addEventListener("click",()=>{
+        modal.style.display = "none";
+        resetGame();
+    })
 }
 
 // Function to increment scores depending on who won
