@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gameButtons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gameChoice{
+    border-style: solid;
+    border-color: black;
+    border-radius: 8px;
+    padding: 16px 32px;
+}
