@@ -36,7 +36,7 @@ function mainGameLoop(){
     }
 }
 // Prompt to play again and reset the tracker variables
-mainGameLoop()
+// mainGameLoop()
 let playAgain;
 while (playAgain != false) {
     playAgain = confirm('Play again?')
